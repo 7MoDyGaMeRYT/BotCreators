@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "prefix";//حط هنا برفكس البوت حقك
+const prefix = "#";//حط هنا برفكس البوت حقك
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
