@@ -110,21 +110,93 @@ var prefix = "#";
  }
 });
 
-         client.on('message', message => {
+client.on('message', iimr7modyx => {
+  if (iimr7modyx.content === "#time") {
+         if (!iimr7modyx.channel.guild) return iimr7modyx.reply('** This command only for servers **');  
+         var currentTime = new Date(),
+            hours = currentTime.getHours() + 2 ,
+            hours2 = currentTime.getHours() + 1 ,
+            hours3 = currentTime.getHours() + 0 ,
+            hours4 = currentTime.getHours() + 1 ,
+            minutes = currentTime.getMinutes(),
+            seconds = currentTime.getSeconds(),
+            Year = currentTime.getFullYear(),
+            Month = currentTime.getMonth() + 1,
+            Day = currentTime.getDate();
+             var h = hours
+  if(hours > 12) {
+               hours -= 12;
+            } else if(hours == 0) {
+                hours = "12";
+            }  
+             if(hours2 > 12) {
+               hours2 -= 12;
+            } else if(hours2 == 0) {
+                hours2 = "12";
+            
+            }  
+if(hours3 > 12) {
+               hours3 -= 12;
+            } else if(hours3 == 0) {
+                hours3 = "12";
+            } 
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+
+
+            var suffix = 'صباحاَ';
+            if (hours >= 12) {
+                suffix = 'مساء';
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+ 
+
+const embed = new Discord.RichEmbed()
+                .setThumbnail("https://i.imgur.com/ib3n4Hq.png") 
+                .setTitle( "**『التاريخ  والوقت』**")
+                .setColor('RANDOM')
+                .setFooter(iimr7modyx.author.username, iimr7modyx.author.avatarURL)
+                .addField('**:flag_ae:  الامارات  العربية المتحدة**',
+                "**『"+ hours + ":" + minutes +":"+ seconds + "』**")
+                 .addField('**:flag_sa: المملكة العربية السعودية **',
+                "**『"+ hours2 + ":" + minutes +":"+ seconds  + "』**") 
+                .addField(' **:flag_eg: جمهورية  مصر العربية** ',
+                "**『"+ hours3 + ":" + minutes +":"+ seconds  + "』**") 
+                
+                .addField('**Date :clock1030: **',
+                "**『"+ Day + "-" + Month + "-" + Year +  "』**")
+
+
+  iimr7modyx.channel.sendEmbed(embed);
+   }
+});
+
+
+
+
+
+        client.on('message', message => {
             if (message.content.startsWith(prefix + "bot-info")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
       .setColor('RANDOM')
 .setTitle('**DragonBot Info**')
-.addField('``السيرفرات التي يتواجد به البوت``',`**${client.guilds.size} سيرفر **`)
-.addField('``مجموع الاعضاء``',`** ${client.users.size}**`)
-.addField('``مجموع الرومات``',`**${client.channels.size}**`) 
-.addField('``الامر الخاص بي``' , `**!**` , true)
-.addField('``بنق البوت``',`**${Date.now() - message.createdTimestamp}**`) 
+.addField(':robot:``السيرفرات التي يتواجد به البوت``',`**${client.guilds.size} سيرفر **`)
+.addField(':busts_in_silhouette:``مجموع الاعضاء``',`** ${client.users.size}**`)
+.addField(':bookmark_tabs:``مجموع الرومات``',`**${client.channels.size}**`) 
+.addField(':ok_hand:``الامر الخاص بي``' , `**!**` , true)
+.addField(':signal_strength:``بنق البوت``',`**${client.ping} ms**`) 
+.addField(':signal_strength:``سرعة انشاء الرسالة``',`**${Date.now() - message.createdTimestamp} ms**`) 
 .addField('``مصممين , اصحاب البوت``',`**<@467305958062817301>**,`)
   message.channel.sendEmbed(embed);
     }
 });
+
+
 
 
 
