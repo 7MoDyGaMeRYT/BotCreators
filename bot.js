@@ -85,6 +85,31 @@ var prefix = "#";
        
 });
 
+client.on('message', message => {
+var prefix = "#";
+      if(message.content === prefix + "hchannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have ADMINISTRATOR Permission ❌');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: false
+ })
+              message.channel.send('**تم اخفاء الروم بنجاح ! ✅**')
+
+ }
+});
+
+client.on('message', message => {
+var prefix = "#";
+      if(message.content === prefix + "schannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have ADMINISTRATOR Permission ❌');
+	  message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: true
+ })
+              message.channel.send('**تم اظهار الروم بنجاح ! ✅  **')
+ }
+});
+
 
 
 client.login(process.env.BOT_TOKEN);//اكتب التوكن حقك بوتك هنا
