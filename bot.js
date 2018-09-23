@@ -110,6 +110,24 @@ var prefix = "#";
  }
 });
 
+         client.on('message', message => {
+            if (message.content.startsWith(prefix + "bot-info")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+      .setColor('RANDOM')
+.setTitle('**DragonBot Info**')
+.addField('``السيرفرات التي يتواجد به البوت``',`**${client.guilds.size} سيرفر **`)
+.addField('``مجموع الاعضاء``',`** ${client.users.size}**`)
+.addField('``مجموع الرومات``',`**${client.channels.size}**`) 
+.addField('``الامر الخاص بي``' , `**!**` , true)
+.addField('``بنق البوت``',`**${Date.now() - message.createdTimestamp}**`) 
+.addField('``مصممين , اصحاب البوت``',`**<@467305958062817301>**,`)
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);//اكتب التوكن حقك بوتك هنا
