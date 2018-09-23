@@ -375,6 +375,30 @@ client.on('message', message =>{
 });
 
 
+client.on('message', message => {
+
+     if (message.author.bot) return;
+    if (!message.channel.guild) return;
+    if (message.content.startsWith(prefix + 'member-status')) {
+        if (!message.channel.guild) return;
+        let embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(message.author.avatarURL)
+            .setFooter(message.author.username, message.author.avatarURL)
+
+        .setDescription(`**:battery: حالة اعضاء السيرفر**
+
+**:green_heart: ** ${message.guild.members.filter(m=>m.presence.status == 'online').size} ** Online**  
+**:yellow_heart: ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size} ** Idle** 
+**:heart: ** ${message.guild.members.filter(m=>m.presence.status == 'dnd').size} ** Don't Disturb**
+**:black_heart: ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size} ** Offline** `)
+
+        message.channel.send()
+
+        message.channel.sendEmbed(embed)
+    }
+});
+
 
 
 
