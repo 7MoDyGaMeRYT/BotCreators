@@ -228,6 +228,25 @@ client.on('message', message =>{
 });
 
 
+const devs = ['467710376352677890' , '373670599463272448' , '453986084804755469' , '467305958062817301'];
+client.on('message', message => {
+var prefix = "!";
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+
+if (message.content.startsWith(prefix + 'cn')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : تم بنجاح تغيير الاسم ?`)
+  return message.reply("**تم تغيير الاسم البوت بنجاح**");
+} else
+if (message.content.startsWith(prefix + 'cp')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغيير صورة البوت بنجاح `);
+
+}
+});
 
 
 
