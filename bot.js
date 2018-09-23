@@ -196,6 +196,36 @@ const embed = new Discord.RichEmbed()
     }
 });
 
+client.on('message', message =>{
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+    let prefix = '#';
+     
+    if(cmd === `${prefix}report`){
+        let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if(!rUser) return message.channel.send("اكتب سبب ريبورت");
+        let reason = args.join(" ").slice(22);
+        if(!reason) return message.channel.send("رجاء كتب سبب الريبروت");
+    
+        let reportEmbed = new Discord.RichEmbed()
+        .setTitle("User just reported...")
+        .setColor("#f7abab")
+        .addField("**- Reported User :**", `${rUser}`)
+        .addField("**- Reported By :**", `${message.author}`)
+        .addField("**- Reported In :**", message.channel)
+        .addField("**- Report Time :**", message.createdAt.toLocaleString(),true)
+        .addField("**- Reason :**", reason);
+    
+        let reportschannel = message.guild.channels.find(`name`, "reports");
+        if(!reportschannel) return message.channel.send("You should to make `reports` channel.");
+    
+    
+        message.delete().catch(O_o=>{});
+        message.author.send(`<@${rUser.id}>, Reported Successfully!!`)
+        reportschannel.send(reportEmbed);
+    };
+});
 
 
 
