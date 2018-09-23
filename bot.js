@@ -230,7 +230,7 @@ client.on('message', message =>{
 
 const devs = ['467710376352677890' , '373670599463272448' , '453986084804755469' , '467305958062817301'];
 client.on('message', message => {
-var prefix = "!";
+var prefix = "#";
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
     var argresult = message.content.split(` `).slice(1).join(' ');
