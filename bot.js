@@ -398,8 +398,6 @@ client.on('message', message => {
 :diamond_shape_with_a_dot_inside: **${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}** **Member**
 :bulb: **${message.guild.members.filter(m=>m.user.bot).size}** **Bot**`)
 
- `)
-
 
         message.channel.send()
 
