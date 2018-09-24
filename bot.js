@@ -405,27 +405,7 @@ client.on('message', msg => {
 });
 
 
-client.on('message', message => {
-     if(!message.channel.guild) return;
-var prefix = "#";
-                if(message.content.startsWith(prefix + 'allbots')) {
 
-    
-    if (message.author.bot) return;
-    let i = 1;
-        const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
-          const embed = new Discord.RichEmbed()
-          .setAuthor(message.author.tag, message.author.avatarURL)
-          .setDescription(`**يوجد ${message.guild.members.filter(m=>m.user.bot).size} بوت في السيرفر**
-${botssize.join('\n')}`)
-.setFooter(client.user.username, client.user.avatarURL)
-.setTimestamp();
-message.channel.send(embed)
-
-}
-
-
-});
 
    client.on('message', message => {
      if (message.content === "#support") {
