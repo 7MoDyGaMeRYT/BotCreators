@@ -1,13 +1,13 @@
 {
-  "name": "DragonBot",
-  "description": "DragonBot For Ever",
+  "name": "Test",
+  "description": "Test",
   "version": "0.0.0",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
   "dependencies": {
-   "discord.js": "^11.4.2",
+   "discord.js": "^11.3.2",
     "discord.js-musicbot-addon": "^1.10.3",
     "express": "^4.16.3",
     "finalhandler": "^1.1.1",
@@ -28,11 +28,9 @@
     "get-youtube-id": "^1.0.0",
     "moment": "^2.22.1",
     "ms": "^2.1.1",
-    "goo.gl": "^0.1.4",
-    "figlet": "^1.2.0",
-    "convas": "^2.0.0",
-    "common-tags": "^1.8.0",
-    "google-it": "1.1.1",
+    "goo.gl":"0.1.4",
+    "figlet":"1.2.0",
+    "google-it":"1.1.1",
     "node-opus": "^0.2.7",
     "opusscript": "0.0.6",
     "python": "0.0.4",
