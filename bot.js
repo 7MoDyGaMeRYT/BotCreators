@@ -193,6 +193,7 @@ client.on('message', message => {
 .addField(':signal_strength:``بنق البوت``',`**${client.ping} ms**`) 
 .addField(':signal_strength:``سرعة انشاء الرسالة``',`**${Date.now() - message.createdTimestamp} ms**`) 
 .addField('``مساحة الرام المستخدمة``', `**${(process.memoryUsage().rss / 1048576).toFixed()}MB**`, true)
+.addField('تاريخ صنع البوت', client.user.createdAt, true)
 .addField('``مصممين , اصحاب البوت``',`**<@467305958062817301>**,`)
   message.channel.sendEmbed(embed);
     }
