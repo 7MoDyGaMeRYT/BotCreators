@@ -427,7 +427,7 @@ message.channel.send(embed)
 });
 
    client.on('message', message => {
-     if (message.content === "+support") {
+     if (message.content === "#support") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
