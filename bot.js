@@ -524,22 +524,21 @@ return;
 });
 
 
-client.on('message', message => { 
-	var prefix = "#";
- let args = message.content.split(' ').slice(1);
-    if(message.content.startsWith(prefix + 'short')) {
-    if(!message.channel.guild) return;  
 
-        googl.setKey('AIzaSyC2Z2mZ_nZTcSvh3QvIyrmOIFP6Ra6co6w');
-        googl.getKey();
-        googl.shorten(args.join(' ')).then(shorturl => {
-            message.channel.send('#shorturl')
-        }).catch(e=>{
-            console.log(e.message);
-            message.channel.send('الرجاء كتابة الربط لكي اختصره');
-        });
+
+client.on('message', message => {
+	var prefix = "#";
+if (message.content.startsWith(prefix + 'tag')) {
+    let args = message.content.split(" ").slice(1);
+if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
+
+    figlet(args.join(" "), (err, data) => {
+              message.channel.send("```" + data + "```")
+           })
 }
 });
+
+
 
 
 
