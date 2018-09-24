@@ -427,5 +427,19 @@ message.channel.send(embed)
 
 });
 
+   client.on('message', message => {
+     if (message.content === "+support") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" ** :gear: Server Support :gear: **" , "  **Soon**")
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+
 
 client.login(process.env.BOT_TOKEN);//اكتب التوكن حقك بوتك هنا
