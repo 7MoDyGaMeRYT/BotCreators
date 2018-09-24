@@ -379,32 +379,30 @@ client.on('message', message =>{
 });
 
 
-client.on('message', message => {
+client.on('message', msg => {
+	var prefix = "#";
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(prefix)) return;
+  let command = msg.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = msg.content.split(" ").slice(1);
 
-     if (message.author.bot) return;
-    if (!message.channel.guild) return;
-    if (message.content.startsWith(prefix + 'member-status')) {
-        if (!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .setThumbnail(message.author.avatarURL)
-            .setFooter(message.author.username, message.author.avatarURL)
-
-        .setDescription(`**:sparkles: حالة اعضاء السيرفر**
-:green_heart: ** ${message.guild.members.filter(m=>m.presence.status == 'online').size}** ** Online**  
-:yellow_heart: ** ${message.guild.members.filter(m=>m.presence.status == 'idle').size}** **Idle** 
-:heart: ** ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}** ** Don't Disturb**
-:black_heart: ** ${message.guild.members.filter(m=>m.presence.status == 'offline').size}** ** Offline**
-:diamond_shape_with_a_dot_inside: **${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}** **Member**
-:bulb: **${message.guild.members.filter(m=>m.user.bot).size}** **Bot**`)
-
-
-        message.channel.send()
-
-        message.channel.sendEmbed(embed)
+    if(command === "clear") {
+        const emoji = client.emojis.find("name", "wastebasket")
+    let textxt = args.slice(0).join("");
+    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
+    if (textxt == "") {
+        msg.delete().then
+    msg.channel.send("***```Supply A Number 👌```***").then(m => m.delete(3000));
+} else {
+    msg.delete().then
+    msg.delete().then
+    msg.channel.bulkDelete(textxt);
+        msg.channel.send("```Cleard: " + textxt + "\n Messages```").then(m => m.delete(3000));
+        }    
     }
+}
 });
-
 
 
 client.on('message', message => {
