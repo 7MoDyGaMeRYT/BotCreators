@@ -4,7 +4,7 @@ const prefix = "#";//حط هنا برفكس البوت حقك
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`!help`,"http://twitch.tv/S-F")//حط حالة الي تريد بوتك يكون عليها مكان !help
+client.user.setGame(`#help | DragonBot`,"http://twitch.tv/iimr7modyx")//حط حالة الي تريد بوتك يكون عليها مكان !help
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -401,7 +401,27 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+     if(!message.channel.guild) return;
+var prefix = "+";
+                if(message.content.startsWith(prefix + 'allbots')) {
 
+    
+    if (message.author.bot) return;
+    let i = 1;
+        const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
+          const embed = new Discord.RichEmbed()
+          .setAuthor(message.author.tag, message.author.avatarURL)
+          .setDescription(`**Found ${message.guild.members.filter(m=>m.user.bot).size} bots in this Server**
+${botssize.join('\n')}`)
+.setFooter(client.user.username, client.user.avatarURL)
+.setTimestamp();
+message.channel.send(embed)
+
+}
+
+
+});
 
 
 client.login(process.env.BOT_TOKEN);//اكتب التوكن حقك بوتك هنا
