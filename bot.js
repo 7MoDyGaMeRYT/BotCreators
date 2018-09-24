@@ -4,7 +4,6 @@ const prefix = "#";//حط هنا برفكس البوت حقك
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`#help | DragonBot`,"http://twitch.tv/iimr7modyx")//حط حالة الي تريد بوتك يكون عليها مكان !help
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -437,6 +436,24 @@ message.channel.send(embed)
      
   message.channel.sendEmbed(embed);
     }
+});
+
+client.on('ready', function(){	
+    var ms = 40000 ;	
+    var setGame = ['on ${client.guilds.size} Server | #help '];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+        client.user.setGame(setGame[i],`http://www.youtube.com/gg`);	
+}, ms);	
+	
 });
 
 
