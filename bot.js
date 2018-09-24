@@ -533,7 +533,7 @@ client.on('message', message => {
         googl.setKey('AIzaSyC2Z2mZ_nZTcSvh3QvIyrmOIFP6Ra6co6w');
         googl.getKey();
         googl.shorten(args.join(' ')).then(shorturl => {
-            message.channel.send(''#shorturl)
+            message.channel.send('#shorturl')
         }).catch(e=>{
             console.log(e.message);
             message.channel.send('الرجاء كتابة الربط لكي اختصره');
