@@ -525,19 +525,6 @@ return;
 
 
 
-client.on('message', message => {
-  var prefix ="#"; 
-if (message.content.startsWith(prefix + 'perms')) {
-         if(!message.channel.guild) return;
-         var perms = JSON.stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
-         var zPeRms = new Discord.RichEmbed()
-         .setColor('RANDOM')
-         .setTitle(':tools: Permissions')
-         .addField('Your Permissions:',perms)
-                  message.channel.send({embed:zPeRms});
-
-    }
-});
 
 
 
